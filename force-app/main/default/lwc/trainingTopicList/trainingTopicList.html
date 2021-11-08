@@ -1,0 +1,45 @@
+<template>
+    <div class="slds-var-p-horizontal_small">
+        <p>printing numbers array: {numbers}</p>
+       <!-- <p>Printing Topic Records: {SFTopicsArrConverted}</p> --> 
+    </div>
+    <!-- hard core process-->
+    <div if:true={recordExists}>
+        <lightning-card  title="Listing All SF training Topics using hard coded array objects" icon-name="standard:asset_action">
+            <ul class="slds-m-around_medium">
+                <template for:each={SFTopicsArr} for:item="topic">
+                    <li key={topic.topicName} class="slds-var-m-around_medium">Topic Name:: {topic.topicName} - Topic Category:: {topic.TopicCatogery}</li>
+                </template>
+            </ul>
+        </lightning-card>
+    </div>
+    <div if:false={recordExists}>
+        <p>No Records Found!!!</p>
+    </div>
+    <!-- method 1:using wire service (output through property)-->
+    <div if:true={recordExists}>
+        <lightning-card  title="Listing All SF training Topics using wire data service(output in property)" icon-name="standard:asset_action">
+            <ul class="slds-m-around_medium">
+                <template for:each={SFTopicsList.data} for:item="topic">
+                    <li key={topic.ID} class="slds-var-m-around_medium">Topic Name:: {topic.Topic_Name__c} - TopicCatogery:: {topic.Topic_Category__c}</li>
+                </template>
+            </ul>
+        </lightning-card>
+    </div>
+    <div if:false={recordExists}>
+        <p>No Records Found!!!</p>
+    </div>
+    <!-- method 2:using wire service (output through function)-->
+    <div if:true={recordExists}>
+        <lightning-card  title="Listing All SF training Topics using wire data service (output in method)" icon-name="standard:asset_action">
+            <ul class="slds-m-around_medium">
+                <template for:each={SFAllTrainingTopics} for:item="topic">
+                    <li key={topic.ID} class="slds-var-m-around_medium">Topic Name:: {topic.Topic_Name__c} - TopicCatogery:: {topic.Topic_Category__c}</li>
+                </template>
+            </ul>
+        </lightning-card>
+    </div>
+    <div if:false={recordExists}>
+        <p>No Records Found!!!</p>
+    </div>
+</template>

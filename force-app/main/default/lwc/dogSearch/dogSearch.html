@@ -1,0 +1,43 @@
+<template>
+
+
+    <lightning-card>
+    
+    
+    <lightning-combobox
+    
+    
+    label="AVAILABLE BREEDS"
+    
+    
+    value={value}
+    
+    
+    placeholder="Select Breed To Show"
+    
+    
+    options={options}
+    
+    
+    onchange={handleChange}>
+    
+    
+    </lightning-combobox>
+    
+    
+    <template if:true={dogImage}>
+    
+    
+    <c-dog-detail breedname = {dogImage.message}></c-dog-detail>
+    
+    
+     
+    
+    
+    </template>
+    
+    
+    </lightning-card>
+    
+    
+    </template>
